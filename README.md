@@ -2,16 +2,18 @@
 # Info
 
 This app contains the User management systems. Features are listed below
-- Login
-- Signup
+- [Home](https://raw.githubusercontent.com/tayyabhussainit/users/main/screens/home.png)
+- [Login](https://raw.githubusercontent.com/tayyabhussainit/users/main/screens/login.png)
+- [Signup](https://raw.githubusercontent.com/tayyabhussainit/users/main/screens/signup.png)
 - Admin User can manage other users
-- Create Roles
-- Create Permissions
-- Assign Roles
-- Create Users
-- Edit Users
+- [Roles](https://raw.githubusercontent.com/tayyabhussainit/users/main/screens/admin_role_management.png)
+- [Roles details](https://raw.githubusercontent.com/tayyabhussainit/users/main/screens/admin_role_assignment_2.png)
+- [Permissions](https://raw.githubusercontent.com/tayyabhussainit/users/main/screens/admin_permissions.png)
+- [Assignment]()
+- [Create Users](https://raw.githubusercontent.com/tayyabhussainit/users/main/screens/admin_create_user.png)
+- [Edit Users](https://raw.githubusercontent.com/tayyabhussainit/users/main/screens/admin_edit_user.png)
 - Delete Users
-- User can change own profile
+- [Profile](https://raw.githubusercontent.com/tayyabhussainit/users/main/screens/profile.png)
 
 Authentication and Authorization has been applied with yii2 rbac
 
