@@ -75,6 +75,15 @@ users/environments/dev/common/config/main-local.php
             'charset' => 'utf8',
         ],
 
+### 3- Copy configuration files
+
+    cp environments/dev/common/config/main-local.php common/config/main-local.php
+    cp environments/dev/console/config/params-local.php common/config/params-local.php
+    cp environments/dev/console/config/params-local.php console/config/params-local.php
+    cp environments/dev/console/config/main-local.php console/config/main-local.php
+    cp environments/dev/frontend/config/params-local.php frontend/config/params-local.php
+    cp environments/dev/frontend/config/main-local.php frontend/config/main-local.php
+
 
 ### 4- Migration
 
@@ -105,7 +114,7 @@ Login
 Signup
     http://localhost:8080/site/signup
 
-### 9- System admin
+### 8- System admin
 
 Login with System admin with
 
