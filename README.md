@@ -61,9 +61,6 @@ Go to root directory
 
     cd users
 
-
-        ],
-
 ### 2- Database setup
 Create database and configure credentials in 
 users/environments/dev/common/config/main-local.php
