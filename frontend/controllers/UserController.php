@@ -83,6 +83,8 @@ class UserController extends Controller
             return $this->render('view', [
                 'model' => $model,
             ]);
+        } else {
+            throw new ForbiddenHttpException('Forbidden');
         }
     }
 

@@ -1,60 +1,121 @@
-<p align="center">
-    <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
-    </a>
-    <h1 align="center">Yii 2 Advanced Project Template</h1>
-    <br>
-</p>
 
-Yii 2 Advanced Project Template is a skeleton [Yii 2](https://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
+# Info
 
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
+This app contains the User management systems. Features are listed below
+- Login
+- Signup
+- Admin User can manage other users
+- Create Roles
+- Create Permissions
+- Assign Roles
+- Create Users
+- Edit Users
+- Delete Users
+- User can change own profile
 
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
+Authentication and Authorization has been applied with yii2 rbac
 
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
-
-[![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![build](https://github.com/yiisoft/yii2-app-advanced/workflows/build/badge.svg)](https://github.com/yiisoft/yii2-app-advanced/actions?query=workflow%3Abuild)
-
-DIRECTORY STRUCTURE
--------------------
+  
+## Prerequisites
 
 ```
-common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
-    tests/               contains tests for common classes    
-console
-    config/              contains console configurations
-    controllers/         contains console controllers (commands)
-    migrations/          contains database migrations
-    models/              contains console-specific model classes
-    runtime/             contains files generated during runtime
-backend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains backend configurations
-    controllers/         contains Web controller classes
-    models/              contains backend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for backend application    
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-frontend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains frontend configurations
-    controllers/         contains Web controller classes
-    models/              contains frontend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for frontend application
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-    widgets/             contains frontend widgets
-vendor/                  contains dependent 3rd-party packages
-environments/            contains environment-based overrides
+
+- PHP > 8.1
+
+- Apache 2.4.52 with mod_rewrite module
+
+- mysql >= 5.6
+
+- Git
+
+- Composer
+
+- Curl
+
+- MCrypt
+
+- PDO PHP Extension
+
+- Mbstring PHP Extension
+
+- Tokenizer PHP Extension
+
 ```
+
+## Installation and Setup
+
+  
+
+### 1- Clone
+
+Clone this Repository
+
+  
+
+	git git@github.com:tayyabhussainit/users.git
+  
+
+### 2- Root dir
+
+Go to root directory
+
+    cd users
+
+### 2- Database setup
+
+Create database and configure credentials in 
+users/environments/dev/common/config/main-local.php
+  
+
+        'db' => [
+            'class' => \yii\db\Connection::class,
+            'dsn' => 'mysql:host=localhost;dbname=user_management',
+            'username' => 'root',
+            'password' => 'root',
+            'charset' => 'utf8',
+        ],
+
+
+### 4- Migration
+
+Run artisan command for migration
+
+	php yii migrate
+
+### 5- Run commands
+System Admin user will be created via console command
+
+    php yii create-amin
+Role, permissions will be create via console command
+
+    php yii create-auth-items
+
+### 6- Run application
+
+For local setup, run below artisan comman
+
+	php yii serve --docroot="frontend/web" --port 8080
+
+This will serve the application at http://localhost:8080
+
+### 7- Authentication
+
+Login
+    http://localhost:8080/site/login
+Signup
+    http://localhost:8080/site/signup
+
+### 9- System admin
+
+Login with System admin with
+
+    username: sysadmin
+    password: admin123
+    
+With System admin user, you will see a "User Management" menu.
+From "User Management" menu you can manage users, roles, permissions.
+NOTE : This option is only available for System Admin
+
+### 9- Profile
+Next to "User Management" there will another menu "Profile".
+From "Profile" users can update their information. Only user can update his own information.
