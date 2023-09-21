@@ -61,11 +61,12 @@ Go to root directory
 
     cd users
 
-### 2- Database setup
 
+        ],
+
+### 2- Database setup
 Create database and configure credentials in 
 users/environments/dev/common/config/main-local.php
-  
 
         'db' => [
             'class' => \yii\db\Connection::class,
@@ -73,7 +74,6 @@ users/environments/dev/common/config/main-local.php
             'username' => 'root',
             'password' => 'root',
             'charset' => 'utf8',
-        ],
 
 ### 3- Copy configuration files
 
@@ -83,8 +83,6 @@ users/environments/dev/common/config/main-local.php
     cp environments/dev/console/config/main-local.php console/config/main-local.php
     cp environments/dev/frontend/config/params-local.php frontend/config/params-local.php
     cp environments/dev/frontend/config/main-local.php frontend/config/main-local.php
-
-
 ### 4- Migration
 
 Run artisan command for migration
