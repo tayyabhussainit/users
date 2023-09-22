@@ -2,9 +2,12 @@
 
 namespace common\tests\unit\models;
 
+use frontend\models\UserForm;
 use Yii;
 use common\models\LoginForm;
 use common\fixtures\UserFixture;
+use common\models\User;
+use mdm\admin\components\UserStatus;
 
 /**
  * Login form test
@@ -49,15 +52,27 @@ class LoginFormTest extends \Codeception\Test\Unit
         ]);
 
         verify($model->login())->false();
-        verify( $model->errors)->arrayHasKey('password');
+        verify($model->errors)->arrayHasKey('password');
         verify(Yii::$app->user->isGuest)->true();
     }
 
     public function testLoginCorrect()
     {
+
+        $user = new User();
+        $uid = uniqid();
+        $user->username = $uid;
+        $user->email = 'test@test.com';
+        $user->setPassword('password123');
+        $user->generateAuthKey();
+        $user->generateEmailVerificationToken();
+        $user->status = UserStatus::ACTIVE;
+
+        $user->save();
+
         $model = new LoginForm([
-            'username' => 'bayer.hudson',
-            'password' => 'password_0',
+            'username' => $uid,
+            'password' => 'password123',
         ]);
 
         verify($model->login())->true();

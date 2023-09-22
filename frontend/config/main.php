@@ -20,7 +20,7 @@ return [
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'enableCookieValidation' => true,
-            'cookieValidationKey' => 'your-validation-key'
+            'cookieValidationKey' => 'XXXXXXXXX'
         ],
         'user' => [
             'identityClass' => 'common\models\User',

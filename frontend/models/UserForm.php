@@ -37,7 +37,7 @@ class UserForm extends Model
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.',  'on' => 'create'],
 
             ['password', 'required', 'on' => 'create'],
-            ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+            ['password', 'string', 'min' => 8],
             [['username', 'email'], 'unique', 'targetClass' => '\common\models\User', 'on' => 'create'],
 
             // Unique validation rule for updating users
@@ -84,6 +84,7 @@ class UserForm extends Model
         if (!$this->validate()) {
             return null;
         }
+
         $user = User::findOne($id);
         $user->username = $this->username;
         $user->email = $this->email;
@@ -93,6 +94,7 @@ class UserForm extends Model
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
         $user->status = $this->status;
+
         return $user->save();
     }
 }

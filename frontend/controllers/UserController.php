@@ -61,6 +61,10 @@ class UserController extends Controller
 
             if ($model->load(Yii::$app->request->post()) && $model->update($id)) {
                 Yii::$app->session->setFlash('success', 'User Updated');
+                if (Yii::$app->user->id == $id) {
+                    $user = User::findOne($id);
+                    Yii::$app->user->login($user);
+                }
 
                 return $this->redirect(['view', 'id' => $user->id]);
             }

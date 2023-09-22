@@ -65,7 +65,7 @@ Go to root directory
 
 ### 2- Database setup
 Create database and configure credentials in 
-users/environments/dev/common/config/main-local.php
+environments/dev/common/config/main-local.php
 
         'db' => [
             'class' => \yii\db\Connection::class,
@@ -73,6 +73,10 @@ users/environments/dev/common/config/main-local.php
             'username' => 'root',
             'password' => 'root',
             'charset' => 'utf8',
+        ]
+
+For Unit testing, create another database and configure credentials in
+environments/dev/common/config/test-local.php
 
 ### 3- Copy configuration files
 
@@ -82,11 +86,22 @@ users/environments/dev/common/config/main-local.php
     cp environments/dev/console/config/main-local.php console/config/main-local.php
     cp environments/dev/frontend/config/params-local.php frontend/config/params-local.php
     cp environments/dev/frontend/config/main-local.php frontend/config/main-local.php
+    cp environments/dev/common/config/test-local.php common/config/test-local.php
+    cp environments/dev/common/config/test-local.php console/config/test-local.php
+    cp environments/dev/common/config/codeception-local.php common/config/codeception-local.php
+    cp environments/dev/common/config/codeception-local.php frontend/config/codeception-local.php
+    cp environments/dev/common/config/codeception-local.php backend/config/codeception-local.php
+    cp environments/dev/frontend/config/test-local.php frontend/config/test-local.php
+
 ### 4- Migration
 
-Run artisan command for migration
+Run command for migration
 
 	php yii migrate
+
+Run command for migration for unit testing DB
+    
+    yii_test migrate
 
 ### 5- Run commands
 System Admin user will be created via console command
@@ -125,3 +140,13 @@ NOTE : This option is only available for System Admin
 ### 9- Profile
 Next to "User Management" there will another menu "Profile".
 From "Profile" users can update their information. Only user can update his own information.
+
+### 10- Unit tests
+Build the test suite
+
+    ./vendor/bin/codecept build
+
+Run test cases
+
+    vendor/bin/codecept run -- -c common
+    

@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'status',
                 'value' => function () use ($model) {
-                    return UserStatus::ACTIVE == $model->status ? 'Active' : 'Inactive';
+                    return (UserStatus::ACTIVE == $model->status) ? 'Active' : 'Inactive';
                 }
             ]
         ],
