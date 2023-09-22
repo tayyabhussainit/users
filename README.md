@@ -63,6 +63,12 @@ Go to root directory
 
     cd users
 
+### 2- Root dir
+
+Go to root directory
+
+    composer install
+
 ### 2- Database setup
 Create database and configure credentials in 
 environments/dev/common/config/main-local.php
@@ -101,7 +107,7 @@ Run command for migration
 
 Run command for migration for unit testing DB
     
-    yii_test migrate
+    php yii_test migrate
 
 ### 5- Run commands
 System Admin user will be created via console command
