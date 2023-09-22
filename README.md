@@ -14,6 +14,7 @@ This app contains the User management systems. Features are listed below
 - [Edit Users](https://raw.githubusercontent.com/tayyabhussainit/users/main/screens/admin_edit_user.png)
 - Delete Users
 - [Profile](https://raw.githubusercontent.com/tayyabhussainit/users/main/screens/profile.png)
+- [Tests](https://raw.githubusercontent.com/tayyabhussainit/users/main/screens/tests.png)_
 
 Authentication and Authorization has been applied with yii2 rbac
 
@@ -112,7 +113,8 @@ Run command for migration for unit testing DB
 ### 5- Run commands
 System Admin user will be created via console command
 
-    php yii create-amin
+    php yii create-admin
+
 Role, permissions will be create via console command
 
     php yii create-auth-items
